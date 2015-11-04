@@ -15,11 +15,11 @@ Package.onUse(function (api) {
 	api.use([
 		'babel-compiler',
 		'ecmascript',
-		'nathantreid:css-modules-import-path-helpers'
+		'nathantreid:css-modules-import-path-helpers@0.0.1'
 	]);
 
 	api.imply('babel-runtime');
-	api.imply('ecmascript-runtime');
+	api.imply('ecmascript-runtime@0.1.6');
 	api.imply('promise');
 
 	api.addFiles([
