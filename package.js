@@ -11,22 +11,23 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-	api.versionsFrom('1.2.0.1');
+	//api.versionsFrom('1.2.0.1');
 	api.use([
 		'babel-compiler',
 		'ecmascript',
 		'nathantreid:css-modules-import-path-helpers@0.0.1'
 	]);
 
+	// pass on implies from ecmascript package
+	api.imply('modules');
+	api.imply('ecmascript-runtime');
 	api.imply('babel-runtime');
-	api.imply('ecmascript-runtime@0.1.6');
 	api.imply('promise');
 
-	api.addFiles([
-		'js-compiler.js',
-	]);
+	api.export('ECMAScript');
+	api.imply('nathantreid:css-modules-import-path-helpers');
 
-	api.export("ECMAScript");
-	api.export("ImportPathHelpers");
+	api.addFiles('js-compiler.js', 'server');
+
 	api.export("JsCompiler");
 });
