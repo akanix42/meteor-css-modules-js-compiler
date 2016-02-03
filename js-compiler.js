@@ -1,9 +1,13 @@
 JsCompiler = class JsCompiler {
+	constructor(options) {
+		this.options = options;
+	}
+
 	processFilesForTarget(files) {
 		files.forEach(processFile);
-		new BabelCompiler().processFilesForTarget(files);
+		new BabelCompiler(this.options).processFilesForTarget(files);
 	}
-}
+};
 
 function processFile(file) {
 	let filePath = ImportPathHelpers.getImportPathInPackage(file);
