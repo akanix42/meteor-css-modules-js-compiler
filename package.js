@@ -13,19 +13,19 @@ Package.describe({
 Package.onUse(function (api) {
 	//api.versionsFrom('1.2.0.1');
 	api.use([
-		'babel-compiler',
-		'ecmascript',
+		'babel-compiler@6.4.0-modules.5',
+		'ecmascript@0.4.0-modules.5',
 		'nathantreid:css-modules-import-path-helpers@0.0.1'
 	]);
 
 	// pass on implies from ecmascript package
-	api.imply('modules');
-	api.imply('ecmascript-runtime');
-	api.imply('babel-runtime');
-	api.imply('promise');
+	api.imply('modules@0.5.0-modules.5');
+	api.imply('ecmascript-runtime@0.2.7-modules.5');
+	api.imply('babel-runtime@0.1.5-modules.5');
+	api.imply('promise@0.5.2-modules.5');
 
 	api.export('ECMAScript');
-	api.imply('nathantreid:css-modules-import-path-helpers');
+	api.imply('nathantreid:css-modules-import-path-helpers@0.0.1');
 
 	api.addFiles('js-compiler.js', 'server');
 
