@@ -8,7 +8,7 @@ JsCompiler = class JsCompiler {
 function processFile(file) {
 	let filePath = ImportPathHelpers.getImportPathInPackage(file);
 	let source = file.getContentsAsString();
-	let content = source.replace(/import (.*?) from (.*\.mss['"]?)[;^]/g, (match, names, p2) => {
+	let content = source.replace(/import (.*?) from (.*\.mss['"]?);?/g, (match, names, p2) => {
 		let path = ImportPathHelpers.getImportPathRelativeToFile(p2, filePath);
 		names = parseImportNames(names);
 		return `var ${names} = CssModules.import('${path}');`;
